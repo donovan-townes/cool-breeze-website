@@ -1,24 +1,15 @@
 import Link from "next/link";
-
-const socialLinks = [
-  ["Instagram", "https://www.instagram.com/coolbreezemusiclabel"],
-  ["Facebook", "https://www.facebook.com/coolbreezemusiclabel"],
-  ["Threads", "https://www.threads.net/@coolbreezemusiclabel"],
-  ["YouTube", "https://www.youtube.com/@coolbreezerecords"],
-  ["X", "https://x.com/recordscool"],
-  ["SoundCloud", "https://soundcloud.com/coolbreezerecords"],
-  ["Beatport", "https://www.beatport.com/label/cool-breeze/77168"],
-] as const;
+import { siteContent } from "@/data/site";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div>
         <p className="footer-mark">Cool Breeze Records</p>
-        <p className="muted">Independent electronic music with room to breathe.</p>
+        <p className="muted">{siteContent.season.name} · {siteContent.season.period}</p>
       </div>
       <div className="footer-links" aria-label="Social links">
-        {socialLinks.map(([label, url]) => (
+        {siteContent.socialLinks.map(([label, url]) => (
           <a href={url} key={label} target="_blank" rel="noreferrer">
             {label} ↗
           </a>

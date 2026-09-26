@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AutumnLeaves } from "@/components/autumn-leaves";
 import { KitSignup } from "@/components/kit-signup";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { catalogReleases, featuredRelease, formatReleaseDate } from "@/data/releases";
+import { siteContent } from "@/data/site";
 
 export default function HomePage() {
   const recentReleases = catalogReleases.slice(0, 3);
@@ -13,8 +15,13 @@ export default function HomePage() {
       <section className="hero-shell">
         <SiteHeader />
         <div className="hero-beam" aria-hidden="true" />
+        <AutumnLeaves className="hero-leaves" />
         <div className="hero-grid page-width">
           <div className="hero-copy">
+            <div className="season-chip">
+              <span>{siteContent.season.name}</span>
+              <span>{siteContent.season.period}</span>
+            </div>
             <p className="eyebrow">
               Featured release <span>·</span> {featuredRelease.catalogNumber}
             </p>
@@ -44,7 +51,23 @@ export default function HomePage() {
         </div>
         <div className="hero-bottomline page-width" aria-hidden="true">
           <span>Independent electronic music</span>
-          <span>Est. in motion</span>
+          <span>{siteContent.season.name} · {siteContent.season.period}</span>
+        </div>
+      </section>
+
+      <section className="season-story" aria-labelledby="season-title">
+        <AutumnLeaves className="season-story__leaves" />
+        <div className="season-story__inner page-width">
+          <div>
+            <p className="eyebrow eyebrow--dark">The current era · {siteContent.season.period}</p>
+            <h2 id="season-title">{siteContent.season.name}</h2>
+          </div>
+          <div className="season-story__copy">
+            <p>{siteContent.season.announcement}</p>
+            <Link className="arrow-link" href="/catalog">
+              Step into the season <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -106,7 +129,7 @@ export default function HomePage() {
       <section className="section newsletter" id="newsletter">
         <div className="newsletter-grid page-width">
           <div>
-            <p className="eyebrow">The Cool Breeze newsletter</p>
+            <p className="eyebrow">{siteContent.newsletter.name}</p>
             <h2>New music, without the noise.</h2>
             <p className="newsletter-copy">
               Join for Cool Breeze releases, Z8phyR updates, catalog notes, and
@@ -115,8 +138,8 @@ export default function HomePage() {
           </div>
           <div className="newsletter-form">
             <KitSignup
-              uid="06bc9190d4"
-              fallbackUrl="https://cool-breeze.kit.com/06bc9190d4"
+              uid={siteContent.newsletter.websiteUid}
+              fallbackUrl={`https://cool-breeze.kit.com/${siteContent.newsletter.websiteUid}`}
             />
           </div>
         </div>

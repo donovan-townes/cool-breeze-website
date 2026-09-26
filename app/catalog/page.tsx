@@ -4,6 +4,7 @@ import { ReleaseArtwork } from "@/components/release-artwork";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { formatReleaseDate, releases } from "@/data/releases";
+import { siteContent } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Catalog",
@@ -15,7 +16,7 @@ export default function CatalogPage() {
     <main className="inner-page">
       <SiteHeader light />
       <header className="catalog-intro page-width">
-        <p className="eyebrow eyebrow--dark">The catalog</p>
+        <p className="eyebrow eyebrow--dark">{siteContent.season.name} · The catalog</p>
         <h1>Follow the breeze<br />back through the records.</h1>
         <p>
           New releases and catalog selections from Cool Breeze Records, ordered from

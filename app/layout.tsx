@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteContent } from "@/data/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s — Cool Breeze Records",
   },
   description:
-    "The home of Cool Breeze Records: new releases, the label catalog, updates, and direct listening links.",
+    `${siteContent.season.name} at Cool Breeze Records: new releases, the label catalog, updates, and direct listening links.`,
   applicationName: "Cool Breeze Records",
   icons: {
     icon: "/brand/cool-breeze-mark.png",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cool Breeze Records",
     description:
-      "New releases, the label catalog, updates, and direct listening links.",
+      `${siteContent.season.name}: new releases, the label catalog, updates, and direct listening links.`,
     url: "https://coolbreezerecords.com",
     siteName: "Cool Breeze Records",
     locale: "en_US",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Cool Breeze Records",
-    description: "New releases, the label catalog, updates, and direct listening links.",
+    description: `${siteContent.season.name}: new releases, the label catalog, updates, and direct listening links.`,
   },
 };
 

@@ -80,6 +80,7 @@ export const releases: Release[] = [
     releaseType: "Single",
     releaseDate: "2021-07-09",
     catalogNumber: "CB043",
+    artwork: "/releases/joah-viewpoint-cover.webp",
     listenUrl: "https://go.protonradio.com/r/rlcAoTKg6_l-c",
     status: "available",
   },

@@ -6,6 +6,7 @@ import { ReleaseArtwork } from "@/components/release-artwork";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { formatReleaseDate, getRelease, releases } from "@/data/releases";
+import { siteContent } from "@/data/site";
 
 type ReleasePageProps = {
   params: Promise<{ slug: string }>;
@@ -68,7 +69,10 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
             <h2>Hear what moves next.</h2>
             <p>Join the Cool Breeze newsletter for new releases and catalog notes.</p>
           </div>
-          <KitSignup uid="06bc9190d4" fallbackUrl="https://cool-breeze.kit.com/06bc9190d4" />
+          <KitSignup
+            uid={siteContent.newsletter.websiteUid}
+            fallbackUrl={`https://cool-breeze.kit.com/${siteContent.newsletter.websiteUid}`}
+          />
         </div>
       </section>
       <SiteFooter />

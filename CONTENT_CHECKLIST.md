@@ -13,20 +13,19 @@
 - [x] Public label email roles
 - [x] Featured release artwork, date, catalog number, and listening link
 - [x] Six catalog entries with release dates, catalog numbers, and listening links
-- [x] Cover artwork for five of the six archive releases
+- [x] Cover artwork for all supplied archive releases
+- [x] Current seasonal era, palette, and announcement
+- [x] Vercel owner confirmed as `donovan-townes`
+- [x] GitHub repository confirmed as `donovan-townes/cool-breeze-website`
 
 ## Helpful before production launch
 
-- [ ] Supply the original `Viewpoint` cover artwork by Joah Ralf
 - [ ] Confirm whether “Viridenis Ventus: the Blooming Presence” should display `Z8PHYR` or `Z8phyR`
 - [ ] Supply a final one- or two-sentence label biography if you want to replace the current concise version
-- [ ] Supply a current label update or announcement beyond the featured release
 - [ ] Supply the merchandise storefront URL when it is ready
 - [ ] Supply any first featured merch image, title, price, and destination link
 - [ ] Confirm whether submissions should stay email-based or point to a dedicated form
 - [ ] Review the draft privacy language before production launch
-- [ ] Confirm the Vercel account that will own the project
-- [ ] Confirm or create the GitHub repository that will connect to Vercel
 
 ## Optional catalog enrichment
 

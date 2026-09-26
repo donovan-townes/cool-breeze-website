@@ -12,7 +12,9 @@ The Vercel-ready website for `coolbreezerecords.com`.
 
 ## Content updates
 
-Release data lives in `data/releases.ts`. Images live in `public/releases`, and the current brand assets live in `public/brand`.
+Seasonal messaging, newsletter forms, and social links live in `data/site.ts`. Release data lives in `data/releases.ts`. Images live in `public/releases`, and the current brand assets live in `public/brand`.
+
+Follow the step-by-step checklist in `UPDATING.md` before publishing any change.
 
 ## Local use
 
