@@ -150,42 +150,128 @@ input {
 
 .autumn-leaves {
   display: block;
+  aspect-ratio: 2.6 / 1;
   overflow: visible;
   pointer-events: none;
 }
 
-.autumn-leaves__leaf > path:first-child {
-  fill: currentColor;
+.autumn-leaves__item {
+  position: absolute;
+  display: block;
+  background: var(--leaf-color, var(--rust));
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transform: rotate(var(--leaf-rotation, 0deg));
+  transform-origin: center;
+  animation: leaf-drift var(--leaf-speed, 9s) ease-in-out var(--leaf-delay, 0s) infinite alternate;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
 }
 
-.autumn-leaves__stem,
-.autumn-leaves__vein {
-  fill: none;
-  stroke: var(--ink);
-  stroke-linecap: round;
-  stroke-width: 3;
+.autumn-leaves__item--main {
+  bottom: -29%;
+  left: 0;
+  width: 31%;
+  aspect-ratio: 0.876;
+  --leaf-color: var(--deep);
+  --leaf-rotation: -24deg;
+  --leaf-speed: 12s;
+  mask-image: url("/season/fall/main-leaf.svg");
+  -webkit-mask-image: url("/season/fall/main-leaf.svg");
 }
 
-.autumn-leaves__leaf--rust {
-  color: var(--rust);
+.autumn-leaves__item--one {
+  bottom: 20%;
+  left: 31%;
+  width: 6%;
+  aspect-ratio: 0.905;
+  --leaf-color: var(--rust);
+  --leaf-rotation: -32deg;
+  --leaf-delay: -3s;
+  mask-image: url("/season/fall/small-leaf-1.svg");
+  -webkit-mask-image: url("/season/fall/small-leaf-1.svg");
 }
 
-.autumn-leaves__leaf--amber {
-  color: var(--amber);
+.autumn-leaves__item--two {
+  bottom: 36%;
+  left: 42%;
+  width: 10%;
+  aspect-ratio: 1.201;
+  --leaf-color: var(--amber);
+  --leaf-rotation: 14deg;
+  --leaf-delay: -6s;
+  --leaf-speed: 10s;
+  mask-image: url("/season/fall/small-leaf-2.svg");
+  -webkit-mask-image: url("/season/fall/small-leaf-2.svg");
 }
 
-.autumn-leaves__leaf--paper {
-  color: var(--foam);
+.autumn-leaves__item--three {
+  bottom: 18%;
+  left: 55%;
+  width: 7%;
+  aspect-ratio: 0.517;
+  --leaf-color: var(--deep);
+  --leaf-rotation: -8deg;
+  --leaf-delay: -1s;
+  --leaf-speed: 11s;
+  mask-image: url("/season/fall/small-leaf-3.svg");
+  -webkit-mask-image: url("/season/fall/small-leaf-3.svg");
+}
+
+.autumn-leaves__item--four {
+  bottom: 43%;
+  left: 68%;
+  width: 8%;
+  aspect-ratio: 0.694;
+  --leaf-color: var(--rust);
+  --leaf-rotation: 29deg;
+  --leaf-delay: -5s;
+  mask-image: url("/season/fall/small-leaf-4.svg");
+  -webkit-mask-image: url("/season/fall/small-leaf-4.svg");
+}
+
+.autumn-leaves__item--five {
+  bottom: 57%;
+  left: 84%;
+  width: 10%;
+  aspect-ratio: 0.804;
+  --leaf-color: var(--ink);
+  --leaf-rotation: 51deg;
+  --leaf-delay: -8s;
+  --leaf-speed: 13s;
+  mask-image: url("/season/fall/small-leaf-5.svg");
+  -webkit-mask-image: url("/season/fall/small-leaf-5.svg");
+}
+
+@keyframes leaf-drift {
+  from {
+    translate: 0 0;
+  }
+
+  to {
+    translate: 0.55rem -0.7rem;
+  }
 }
 
 .hero-leaves {
   position: absolute;
-  top: 14%;
-  right: -5rem;
+  top: 12%;
+  right: -2rem;
   z-index: 1;
-  width: min(34vw, 33rem);
-  opacity: 0.18;
-  transform: rotate(8deg);
+  width: min(42vw, 40rem);
+  opacity: 0.2;
+  transform: rotate(-5deg);
+}
+
+.hero-leaves .autumn-leaves__item--main,
+.hero-leaves .autumn-leaves__item--three {
+  --leaf-color: var(--rust);
+}
+
+.hero-leaves .autumn-leaves__item--five {
+  --leaf-color: var(--foam);
 }
 
 .hero-grid {
@@ -388,11 +474,11 @@ input {
 
 .season-story__leaves {
   position: absolute;
-  right: -5rem;
-  bottom: -7rem;
-  width: min(44vw, 39rem);
-  opacity: 0.14;
-  transform: rotate(-9deg);
+  right: -4rem;
+  bottom: -5rem;
+  width: min(58vw, 50rem);
+  opacity: 0.16;
+  transform: rotate(-6deg);
 }
 
 .section {
@@ -1269,10 +1355,11 @@ a:focus-visible {
   }
 
   .season-story__leaves {
-    right: -11rem;
-    bottom: -4rem;
-    width: 120vw;
-    opacity: 0.1;
+    right: -3rem;
+    bottom: -2rem;
+    width: 125vw;
+    opacity: 0.16;
+    transform: rotate(-4deg);
   }
 
   .section-heading .arrow-link {
@@ -1352,6 +1439,8 @@ a:focus-visible {
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }

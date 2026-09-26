@@ -14,6 +14,7 @@ This is the repeatable process for Donovan or any coding agent making a site upd
 - [ ] Open `data/site.ts`.
 - [ ] Change `season.name`, `season.period`, and `season.announcement`.
 - [ ] Open the `:root` block at the top of `app/globals.css` and replace the seasonal color values with the approved palette.
+- [ ] The current leaf silhouettes live in `public/season/fall`; their placement and motion live in the autumn-leaf block of `app/globals.css`.
 - [ ] If the visual motif changes, update `components/autumn-leaves.tsx` or replace it with the next season’s motif component.
 - [ ] Search for the old era name with `rg "Fall Breeze"` and review every result before replacing it.
 
