@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { KitSignup } from "@/components/kit-signup";
-import { featuredRelease } from "@/data/releases";
+import { featuredRelease, formatReleaseDate } from "@/data/releases";
 import { siteContent } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -48,9 +48,9 @@ export default function GoPage() {
             style={{ height: "auto" }}
           />
           <span>
-            <small>Featured release</small>
+            <small>{featuredRelease.status === "forthcoming" ? "Featured pre-order" : "Featured release"}</small>
             <strong>{featuredRelease.title}</strong>
-            <em>{featuredRelease.subtitle}</em>
+            <em>{featuredRelease.artist} · {formatReleaseDate(featuredRelease.releaseDate)}</em>
           </span>
           <b aria-hidden="true">↗</b>
         </Link>

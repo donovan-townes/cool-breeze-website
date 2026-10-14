@@ -27,6 +27,26 @@ export async function generateMetadata({ params }: ReleasePageProps): Promise<Me
     description:
       release.description ??
       `Listen to ${release.title}${release.subtitle ? `: ${release.subtitle}` : ""} by ${release.artist} on Cool Breeze Records.`,
+    openGraph: release.artwork
+      ? {
+          title: fullTitle,
+          description:
+            release.description ??
+            `Listen to ${release.title} by ${release.artist} on Cool Breeze Records.`,
+          images: [{ url: release.artwork, alt: `${release.title} cover artwork` }],
+          type: "music.song",
+        }
+      : undefined,
+    twitter: release.artwork
+      ? {
+          card: "summary_large_image",
+          title: fullTitle,
+          description:
+            release.description ??
+            `Listen to ${release.title} by ${release.artist} on Cool Breeze Records.`,
+          images: [release.artwork],
+        }
+      : undefined,
   };
 }
 
@@ -54,7 +74,8 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
           {release.description && <p className="release-description">{release.description}</p>}
           {release.listenUrl ? (
             <a className="button button--light release-action" href={release.listenUrl} target="_blank" rel="noreferrer">
-              Listen / buy <span aria-hidden="true">↗</span>
+              {release.status === "forthcoming" ? "Pre-order / pre-save" : "Listen / buy"}{" "}
+              <span aria-hidden="true">↗</span>
             </a>
           ) : (
             <a className="button button--light release-action" href="#release-newsletter">Follow the release</a>

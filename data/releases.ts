@@ -14,6 +14,19 @@ export type Release = {
 
 export const releases: Release[] = [
   {
+    slug: "reverie",
+    title: "Reverie",
+    artist: "Z8phyR",
+    releaseType: "Single",
+    releaseDate: "2026-10-16",
+    catalogNumber: "CB2602",
+    description:
+      "Z8phyR’s “Reverie” is melodic progressive house built around dreamlike atmosphere and forward motion — a lift for the moments when you need to keep moving toward the goal.",
+    artwork: "/releases/reverie.webp",
+    listenUrl: "https://go.protonradio.com/r/rlOdKmvsn1sM8",
+    status: "forthcoming",
+  },
+  {
     slug: "viridenis-ventus",
     title: "Viridenis Ventus",
     subtitle: "the Blooming Presence",

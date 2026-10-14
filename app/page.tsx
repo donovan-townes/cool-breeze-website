@@ -31,7 +31,8 @@ export default function HomePage() {
             <p className="hero-status">{formatReleaseDate(featuredRelease.releaseDate)}</p>
             <div className="button-row">
               <Link className="button button--light" href={`/listen/${featuredRelease.slug}`}>
-                Listen now <span aria-hidden="true">↗</span>
+                {featuredRelease.status === "forthcoming" ? "Pre-order now" : "Listen now"}{" "}
+                <span aria-hidden="true">↗</span>
               </Link>
               <a className="button button--ghost" href="#newsletter">
                 Join the newsletter
