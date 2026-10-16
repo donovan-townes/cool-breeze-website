@@ -27,7 +27,7 @@ export default function HomePage() {
             </p>
             <p className="artist-name">{featuredRelease.artist}</p>
             <h1>{featuredRelease.title}</h1>
-            <p className="hero-subtitle">{featuredRelease.subtitle}</p>
+            {featuredRelease.subtitle && <p className="hero-subtitle">{featuredRelease.subtitle}</p>}
             <p className="hero-status">{formatReleaseDate(featuredRelease.releaseDate)}</p>
             <div className="button-row">
               <Link className="button button--light" href={`/listen/${featuredRelease.slug}`}>
@@ -42,7 +42,7 @@ export default function HomePage() {
           <Link className="hero-art" href={`/listen/${featuredRelease.slug}`}>
             <Image
               src={featuredRelease.artwork!}
-              alt={`${featuredRelease.title}: ${featuredRelease.subtitle} cover artwork`}
+              alt={`${featuredRelease.title}${featuredRelease.subtitle ? `: ${featuredRelease.subtitle}` : ""} cover artwork`}
               width={1080}
               height={1080}
               priority

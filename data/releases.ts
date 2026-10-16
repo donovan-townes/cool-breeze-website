@@ -24,7 +24,7 @@ export const releases: Release[] = [
       "Z8phyR’s “Reverie” is melodic progressive house built around dreamlike atmosphere and forward motion — a lift for the moments when you need to keep moving toward the goal.",
     artwork: "/releases/reverie.webp",
     listenUrl: "https://go.protonradio.com/r/rlOdKmvsn1sM8",
-    status: "forthcoming",
+    status: "available",
   },
   {
     slug: "viridenis-ventus",
