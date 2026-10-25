@@ -9,10 +9,25 @@ export type Release = {
   description?: string;
   artwork?: string;
   listenUrl?: string;
+  preorderOpensAt?: string;
   status: "available" | "forthcoming";
 };
 
 export const releases: Release[] = [
+  {
+    slug: "spooky-breeze",
+    title: "Spooky Breeze",
+    artist: "Z8phyR",
+    releaseType: "Single",
+    releaseDate: "2026-10-31",
+    catalogNumber: "CB2604",
+    description:
+      "Z8phyR brings a Halloween twist to progressive house with “Spooky Breeze,” arriving October 31 on Cool Breeze Records.",
+    artwork: "/releases/spooky-breeze.png",
+    listenUrl: "https://go.protonradio.com/r/rlWmpk1Ud2AXE",
+    preorderOpensAt: "2026-10-26T10:00:00-05:00",
+    status: "forthcoming",
+  },
   {
     slug: "reverie",
     title: "Reverie",
@@ -117,6 +132,17 @@ export const catalogReleases = releases.slice(1);
 
 export function getRelease(slug: string) {
   return releases.find((release) => release.slug === slug);
+}
+
+export function isReleaseActionLive(
+  release: Pick<Release, "preorderOpensAt" | "status">,
+  now = Date.now(),
+) {
+  if (release.status === "available") return true;
+  if (!release.preorderOpensAt) return false;
+
+  const activationTime = Date.parse(release.preorderOpensAt);
+  return !Number.isNaN(activationTime) && now >= activationTime;
 }
 
 export function formatReleaseDate(date?: string) {

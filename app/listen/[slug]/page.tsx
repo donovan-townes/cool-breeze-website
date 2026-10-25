@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { KitSignup } from "@/components/kit-signup";
+import { ReleaseAction } from "@/components/release-action";
 import { ReleaseArtwork } from "@/components/release-artwork";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -72,14 +73,7 @@ export default async function ReleasePage({ params }: ReleasePageProps) {
           {release.subtitle && <p className="release-subtitle">{release.subtitle}</p>}
           <p className="release-date-large">{formatReleaseDate(release.releaseDate)}</p>
           {release.description && <p className="release-description">{release.description}</p>}
-          {release.listenUrl ? (
-            <a className="button button--light release-action" href={release.listenUrl} target="_blank" rel="noreferrer">
-              {release.status === "forthcoming" ? "Pre-order / pre-save" : "Listen / buy"}{" "}
-              <span aria-hidden="true">↗</span>
-            </a>
-          ) : (
-            <a className="button button--light release-action" href="#release-newsletter">Follow the release</a>
-          )}
+          <ReleaseAction release={release} placement="release" />
         </div>
       </section>
 

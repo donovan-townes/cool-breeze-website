@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AutumnLeaves } from "@/components/autumn-leaves";
 import { KitSignup } from "@/components/kit-signup";
+import { ReleaseAction } from "@/components/release-action";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { catalogReleases, featuredRelease, formatReleaseDate } from "@/data/releases";
@@ -30,10 +31,7 @@ export default function HomePage() {
             {featuredRelease.subtitle && <p className="hero-subtitle">{featuredRelease.subtitle}</p>}
             <p className="hero-status">{formatReleaseDate(featuredRelease.releaseDate)}</p>
             <div className="button-row">
-              <Link className="button button--light" href={`/listen/${featuredRelease.slug}`}>
-                {featuredRelease.status === "forthcoming" ? "Pre-order now" : "Listen now"}{" "}
-                <span aria-hidden="true">↗</span>
-              </Link>
+              <ReleaseAction release={featuredRelease} placement="home" />
               <a className="button button--ghost" href="#newsletter">
                 Join the newsletter
               </a>

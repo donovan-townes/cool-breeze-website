@@ -48,7 +48,7 @@ export default function GoPage() {
             style={{ height: "auto" }}
           />
           <span>
-            <small>{featuredRelease.status === "forthcoming" ? "Featured pre-order" : "Featured release"}</small>
+            <small>{featuredRelease.status === "forthcoming" ? "Featured upcoming release" : "Featured release"}</small>
             <strong>{featuredRelease.title}</strong>
             <em>{featuredRelease.artist} · {formatReleaseDate(featuredRelease.releaseDate)}</em>
           </span>
