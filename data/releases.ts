@@ -3,17 +3,32 @@ export type Release = {
   title: string;
   subtitle?: string;
   artist: string;
-  releaseType: "Single" | "EP" | "Remixes";
+  releaseType: "Single" | "EP" | "Compilation" | "Remixes";
   releaseDate?: string;
   catalogNumber: string;
   description?: string;
   artwork?: string;
   listenUrl?: string;
+  preorderDate?: string;
   preorderOpensAt?: string;
   status: "available" | "forthcoming";
 };
 
 export const releases: Release[] = [
+  {
+    slug: "fall-breeze-2026",
+    title: "Fall Breeze 2026",
+    artist: "Z8phyR",
+    releaseType: "Compilation",
+    releaseDate: "2026-11-20",
+    catalogNumber: "CB2603",
+    description:
+      "Cool Breeze Records presents Fall Breeze 2026, a five-track Z8phyR compilation shaped by warmth, memory, and renewal. Pre-order opens November 16; full release November 20.",
+    artwork: "/releases/fall-breeze-2026.png",
+    listenUrl: "https://go.protonradio.com/r/rl3L8tmSbZI7U",
+    preorderDate: "2026-11-16",
+    status: "forthcoming",
+  },
   {
     slug: "spooky-breeze",
     title: "Spooky Breeze",
@@ -22,11 +37,10 @@ export const releases: Release[] = [
     releaseDate: "2026-10-31",
     catalogNumber: "CB2604",
     description:
-      "Z8phyR brings a Halloween twist to progressive house with “Spooky Breeze,” arriving October 31 on Cool Breeze Records.",
+      "Z8phyR brings a Halloween twist to progressive house with “Spooky Breeze,” released October 31 on Cool Breeze Records.",
     artwork: "/releases/spooky-breeze.png",
     listenUrl: "https://go.protonradio.com/r/rlWmpk1Ud2AXE",
-    preorderOpensAt: "2026-10-26T10:00:00-05:00",
-    status: "forthcoming",
+    status: "available",
   },
   {
     slug: "reverie",
@@ -151,6 +165,15 @@ export function formatReleaseDate(date?: string) {
     month: "short",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
+export function formatMonthDay(date?: string) {
+  if (!date) return undefined;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
     timeZone: "UTC",
   }).format(new Date(`${date}T00:00:00Z`));
 }

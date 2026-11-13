@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { isReleaseActionLive, type Release } from "@/data/releases";
+import { formatMonthDay, isReleaseActionLive, type Release } from "@/data/releases";
 
 type ReleaseActionProps = {
-  release: Pick<Release, "listenUrl" | "preorderOpensAt" | "slug" | "status">;
+  release: Pick<Release, "listenUrl" | "preorderDate" | "preorderOpensAt" | "slug" | "status">;
   placement: "home" | "release";
 };
 
@@ -44,6 +44,7 @@ function usePreorderIsLive(release: ReleaseActionProps["release"]) {
 
 export function ReleaseAction({ release, placement }: ReleaseActionProps) {
   const isLive = usePreorderIsLive(release);
+  const preorderDate = formatMonthDay(release.preorderDate);
   const className = placement === "release"
     ? "button button--light release-action"
     : "button button--light";
@@ -63,14 +64,14 @@ export function ReleaseAction({ release, placement }: ReleaseActionProps) {
   if (placement === "home") {
     return (
       <Link className={className} href={`/listen/${release.slug}`}>
-        Release details <span aria-hidden="true">↗</span>
+        {preorderDate ? `Pre-order opens ${preorderDate}` : "Release details"} <span aria-hidden="true">↗</span>
       </Link>
     );
   }
 
   return (
     <a className={className} href="#release-newsletter">
-      Follow the release
+      {preorderDate ? `Pre-order opens ${preorderDate}` : "Follow the release"}
     </a>
   );
 }
