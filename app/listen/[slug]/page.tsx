@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: ReleasePageProps): Promise<Me
   if (!release) return {};
 
   const fullTitle = `${release.title}${release.subtitle ? `: ${release.subtitle}` : ""} — ${release.artist}`;
+  const shareImage = `/share/${release.slug}`;
+  const shareImageAlt = `${release.title} by ${release.artist} — Cool Breeze Records`;
   return {
     title: fullTitle,
     description:
@@ -34,7 +36,15 @@ export async function generateMetadata({ params }: ReleasePageProps): Promise<Me
           description:
             release.description ??
             `Listen to ${release.title} by ${release.artist} on Cool Breeze Records.`,
-          images: [{ url: release.artwork, alt: `${release.title} cover artwork` }],
+          url: `/listen/${release.slug}`,
+          images: [
+            {
+              url: shareImage,
+              width: 1200,
+              height: 630,
+              alt: shareImageAlt,
+            },
+          ],
           type: "music.song",
         }
       : undefined,
@@ -45,7 +55,7 @@ export async function generateMetadata({ params }: ReleasePageProps): Promise<Me
           description:
             release.description ??
             `Listen to ${release.title} by ${release.artist} on Cool Breeze Records.`,
-          images: [release.artwork],
+          images: [{ url: shareImage, alt: shareImageAlt }],
         }
       : undefined,
   };
