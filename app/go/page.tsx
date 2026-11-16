@@ -38,7 +38,12 @@ export default function GoPage() {
         <h1>Cool Breeze Records</h1>
         <p className="go-intro">The latest music and the quickest way into the label.</p>
 
-        <Link className="go-feature" href={`/listen/${featuredRelease.slug}`}>
+        <a
+          className="go-feature"
+          href={featuredRelease.listenUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
           <Image
             src={featuredRelease.artwork!}
             width={1080}
@@ -48,12 +53,12 @@ export default function GoPage() {
             style={{ height: "auto" }}
           />
           <span>
-            <small>{featuredRelease.status === "forthcoming" ? "Featured upcoming release" : "Featured release"}</small>
+            <small>{featuredRelease.status === "forthcoming" ? "Preorder now" : "Listen / buy"}</small>
             <strong>{featuredRelease.title}</strong>
             <em>{featuredRelease.artist} · {formatReleaseDate(featuredRelease.releaseDate)}</em>
           </span>
           <b aria-hidden="true">↗</b>
-        </Link>
+        </a>
 
         <nav className="go-links" aria-label="Cool Breeze links">
           {quickLinks.map((item) =>

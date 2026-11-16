@@ -10,7 +10,7 @@ type ReleaseActionProps = {
 };
 
 function usePreorderIsLive(release: ReleaseActionProps["release"]) {
-  const [isLive, setIsLive] = useState(release.status === "available");
+  const [isLive, setIsLive] = useState(() => isReleaseActionLive(release));
 
   useEffect(() => {
     if (release.status === "available") {
@@ -52,7 +52,7 @@ export function ReleaseAction({ release, placement }: ReleaseActionProps) {
   if (isLive && release.listenUrl) {
     const label = release.status === "available"
       ? placement === "release" ? "Listen / buy" : "Listen now"
-      : placement === "release" ? "Pre-order / pre-save" : "Pre-order now";
+      : "Preorder now";
 
     return (
       <a className={className} href={release.listenUrl} target="_blank" rel="noreferrer">
@@ -64,14 +64,14 @@ export function ReleaseAction({ release, placement }: ReleaseActionProps) {
   if (placement === "home") {
     return (
       <Link className={className} href={`/listen/${release.slug}`}>
-        {preorderDate ? `Pre-order opens ${preorderDate}` : "Release details"} <span aria-hidden="true">↗</span>
+        {preorderDate ? `Preorder opens ${preorderDate}` : "Release details"} <span aria-hidden="true">↗</span>
       </Link>
     );
   }
 
   return (
     <a className={className} href="#release-newsletter">
-      {preorderDate ? `Pre-order opens ${preorderDate}` : "Follow the release"}
+      {preorderDate ? `Preorder opens ${preorderDate}` : "Follow the release"}
     </a>
   );
 }

@@ -2,6 +2,7 @@ export const siteContent = {
   season: {
     name: "Fall Breeze",
     period: "Autumn 2026",
+    effect: "falling-leaves",
     announcement:
       "Cool Breeze Records is officially in the Fall Breeze era—a seasonal chapter shaped by warmer tones, drifting leaves, and music made for the change in the air.",
   },

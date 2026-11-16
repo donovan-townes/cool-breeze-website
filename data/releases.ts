@@ -23,10 +23,11 @@ export const releases: Release[] = [
     releaseDate: "2026-11-20",
     catalogNumber: "CB2603",
     description:
-      "Cool Breeze Records presents Fall Breeze 2026, a five-track Z8phyR compilation shaped by warmth, memory, and renewal. Pre-order opens November 16; full release November 20.",
+      "Cool Breeze Records presents Fall Breeze 2026, a five-track Z8phyR compilation shaped by warmth, memory, and renewal. Preorder now; full release November 20.",
     artwork: "/releases/fall-breeze-2026.png",
     listenUrl: "https://go.protonradio.com/r/rl3L8tmSbZI7U",
     preorderDate: "2026-11-16",
+    preorderOpensAt: "2026-11-16T00:00:00-06:00",
     status: "forthcoming",
   },
   {

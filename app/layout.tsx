@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SeasonalFallingLeaves } from "@/components/seasonal-falling-leaves";
 import { featuredRelease } from "@/data/releases";
 import { siteContent } from "@/data/site";
 import "./globals.css";
@@ -52,7 +53,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {siteContent.season.effect === "falling-leaves" && <SeasonalFallingLeaves />}
+        {children}
+      </body>
     </html>
   );
 }
